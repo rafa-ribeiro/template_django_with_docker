@@ -16,6 +16,7 @@ Esse repositório em específico faz uso de tecnologias muito úteis e que comum
 - **Redis**
 - **Docker**
 - **Docker-compose**
+- **Pipenv**
 
 
 
