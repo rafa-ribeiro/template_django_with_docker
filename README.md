@@ -1,10 +1,10 @@
 # template_django_with_docker
 
-Esse repositório é um modelo de um projeto de desenvolvimento de aplicação usando Django com Docker e fazendo uso de banco de dados Postgresql (para persistência dos dados em geral) e Redis (como cache).
+Esse repositório é um modelo de um projeto de desenvolvimento de uma aplicação backend usando Django com Docker e fazendo uso de banco de dados Postgresql (para persistência dos dados em geral) e Redis (como cache).
 
 ## Objetivo
 
-O objetivo desse repositório é ter algo como um "bootstrap" para facilitar na criação rápida de projetos usando essas tecnologias, permitindo focar mais nas regras de negócio do que em configurações em geral. É uma ótima opção para iniciar projetos rápidos, ou ajudar a inicializar um projeto para um processo seletivo, por exemplo.
+O objetivo desse repositório é ter algo como um "bootstrap" para facilitar na criação rápida de projetos backend usando essas tecnologias, permitindo focar mais nas regras de negócio do que em configurações em geral. É uma ótima opção para iniciar projetos rapidamente, ou ajudar a inicializar um projeto para um processo seletivo, por exemplo.
 
 ## Tecnologias
 
@@ -75,7 +75,7 @@ Ambos devem apontar ou referenciar o nome do diretório em que criamos o projeto
 O comando abaixo irá criar um diretório config de uma aplicação Django. O "." passado no final do comando é para dizer ao django criar o projeto a partir do diretório raiz. Por padrão, ele criaria um diretório extra e dentro desse diretório criaria o config, mas aqui vai do gosto do freguês e de como se quer organizar o projeto.
 
 ```batch
-django-admin startproject config .
+(template_django_with_docker) ➜ :~$ django-admin startproject config .
 ```
 
 Com o comando executado, nosso projeto ficará com a seguinte estrutura:
@@ -95,3 +95,13 @@ Com o comando executado, nosso projeto ficará com a seguinte estrutura:
 │   └── wsgi.py
 └── manage.py
 ```
+
+### 5. Pensando na arquitetura do Projeto
+
+Antes de adicionarmos os módulos do Django, seria interessante pensar na forma de organização que teremos no nosso projeto. 
+
+Para esse projeto específico, nesse repositório iremos implementar uma arquitetura que considero mais simples, que têm seus prós e contras, como tudo na vida, mas que sua simplicidade permite identificar alguns pontos de melhoria e repensar para novos desenhos. Futuramente quero adicionar novos repositórios ilustrando outros desenhos e deixar a escolha para o desenvolvedor de qual se adequa melhor à sua solução.
+
+
+
+
