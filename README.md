@@ -26,7 +26,7 @@ O projeto faz uso do pipenv para gerenciar um ambiente virtual específico para 
 
 Com o pipenv instalado, vamos criar o nosso ambiente virtual:
 
-```bat
+```batch
 pipenv --python 3.7
 ```
 
@@ -58,13 +58,13 @@ pipenv shell
 
 Nosso ambiente agora está ativo, podemos checar usando os comandos:
 
-```bash
+```batch
 pipenv --venv
 ```
 
 Ou
 
-```bash
+```batch
 pipenv --where
 ```
 
