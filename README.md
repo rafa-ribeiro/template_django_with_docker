@@ -106,3 +106,24 @@ Para esse projeto, nesse repositório iremos implementar uma arquitetura que con
 ![Diagrama](./docs/diagrams/architecture_diagram.png)
 
 
+**Sobre o arquitetura**:
+
+No desenho acima, está uma exibição de como seriam as dependências dos módulos da aplicação:
+
+- **main** é o pacote principal, ele depende de conhecer todos os outros pacotes da aplicação para executar as principais regras de negócios do domínio da aplicação. Ou seja, ele depende dos demais módulos e ninguém deve depender dele. Nesse desenho é fácil pensar no sentido das dependências e fácil perceber quando algo está desobedencendo o desenho proposto para o domínio. Sempre que elementos de apps externos sejam necessários trabalhar de forma conjunta, é no pacote main que ele deve existir, por exemplo, o diagrama mostra os pacotes externos Product e Customer, caso fôssemos implementar uma lista de produtos para um cliente, provavelmente esse código deveria estar no main, é fácil perceber que o módulo Product não deveria conhecer o Customer e o inverso também. Criar um novo pacote para manipular essa lista de produtos para os clientes poderia ser uma opção, mas seria um pacote bastante restrito, o que torna sua reutilização mais difícil.
+
+- **Product** e **Customer** são pacotes externos que lidam de forma isoladas com um domínio bem específico, por exemplo, o pacote Customer não depende de mais ninguém para executar suas regras de domínio e deve conhecer um conjunto de regras muito específico que dizem respeito somente a como a aplicação irá gerenciar um Customer. Nesse pacote, podem existir coisas como o Modelo de Customer, que no Django, é a estrutura que irá representar um Cliente no banco de dados da aplicação, serviços que saber manipular um Cliente, os endpoints para dar acesso às operações em Cliente, testes unitários específicos para essas operações. Essa separação evidência de forma clara que a responsabilidade desse pacote é bem específica, conhecer e manipular cliente, e isso é bom, é fácil identificar que se tenho algum problema na minha aplicação envolvendo cliente, que provavelmente, esse é o pacote que vou ter que dar manutenção e que como ele não depende de ninguém externamente, isso facilita sua manutenibilidade. Por outro lado, essa abordagem faz com que as regras de negócio se espalhem por toda a aplicação, não ficando somente no módulo main. Mas como isso ocorre? Se ao definir a estrutura Customer, for especificado que o Customer possui um nome e um email, e que esse email é único para um mesmo cliente, essa regra estaria representada no módulo Customer, mas essa é uma regra do domínio da aplicação, logo deveria estar no módulo main que seria o ponto principal a conhecer as regras da aplicação.
+
+## Prós e contras desse desenho arquitetural
+
+### Prós
+- Simplicidade, fácil identificação das dependências do projeto
+- Regra de negócio principal do projeto fica contida somente num lugar, módulo main.
+- Os pacotes externos têm responsabilidades bem definidas e, quando preciso, somente um motivo para serem alterados
+
+### Contras
+- Módulo main possui alto acoplamento, qualquer alteração nos demais módulos, podem causar necessidade de alteração no main.
+- O main pode crescer de forma bastante considerável, pode ser um fator importante dependendo do tamanho do projeto
+- As regras de negócio podem ser espalhadas, existindo tanto no main quanto nos demais módulos, mesmo que de forma mais específica.
+
+
