@@ -18,6 +18,16 @@ Esse repositório em específico faz uso de tecnologias muito úteis e que comum
 - **Docker-compose**
 - **Pipenv**
 
+## Passo-a-passo para inicializar o projeto
 
+**1 Inicializando ambiente com Pipenv**
+
+O projeto faz uso do pipenv para gerenciar um ambiente virtual específico para a nossa aplicação e deixando isolado dos demais ambientes e mesmo da instalação da máquina local quanto às libs do Python. Dessa forma, o pipenv foi a ferramenta escolhida para manter e gerenciar esse ambiente virtual. Certifique-se de ter o pipenv instalado na sua máquina, o processo é bem simples, portanto iremos pular essa parte aqui no passo-a-passo.
+
+Com o pipenv instalado, vamos criar o nosso ambiente virtual:
+
+```bat
+pipenv --python 3.7
+```
 
 
