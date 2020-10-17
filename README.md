@@ -20,7 +20,7 @@ Esse repositório em específico faz uso de tecnologias muito úteis e que comum
 
 ## Passo-a-passo para inicializar o projeto
 
-**1. Inicializando ambiente com Pipenv**
+### 1. Inicializando ambiente com Pipenv
 
 O projeto faz uso do pipenv para gerenciar um ambiente virtual específico para a nossa aplicação e deixando isolado dos demais ambientes e mesmo da instalação da máquina local quanto às libs do Python. Dessa forma, o pipenv foi a ferramenta escolhida para manter e gerenciar esse ambiente virtual. Certifique-se de ter o pipenv instalado na sua máquina, o processo é bem simples, portanto iremos pular essa parte aqui no passo-a-passo.
 
@@ -34,7 +34,7 @@ Ao criar o ambiente, será gerado um arquivo Pipfile que, por ora, só diz que o
 
 Agora que temos um ambiente virtual par ao nosso projeto, vamos instalar o Django nesse ambiente.
 
-**2. Instalando Django**
+### 2. Instalando Django
 
 Usando o pipenv, utilizaremos o comando abaixo para instalar o Django:
 
@@ -48,7 +48,7 @@ Percebeu que surgiu um novo arquivo aí chamado Pipfile.lock? Esse arquivo é mu
 
 E porque isso é importante? É importante porque caso você precise mudar de máquina enquanto está desenvolvendo sua aplicação, esse arquivo ajudará a replicar o ambiente virtual idêntico em uma nova instalação e com isso você sempre tem a tranquilidade de saber que está usando as mesmas versões e que a compatibilidade entre elas permanece.
 
-**3. Ativando o ambiente virtual**
+### 3. Ativando o ambiente virtual
 
 O ambiente virtual agora existe e já tem a carinha do projeto, mas para o usarmos de fato, precisamos ativá-lo:
 
@@ -69,3 +69,29 @@ pipenv --where
 ```
 
 Ambos devem apontar ou referenciar o nome do diretório em que criamos o projeto.
+
+### 4. Iniciando um projeto django
+
+O comando abaixo irá criar um diretório config de uma aplicação Django. O "." passado no final do comando é para dizer ao django criar o projeto a partir do diretório raiz. Por padrão, ele criaria um diretório extra e dentro desse diretório criaria o config, mas aqui vai do gosto do freguês e de como se quer organizar o projeto.
+
+```batch
+django-admin startproject config .
+```
+
+Com o comando executado, nosso projeto ficará com a seguinte estrutura:
+
+```batch
+(template_django_with_docker) ➜ :~$ tree
+.
+├── LICENSE
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── config
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── manage.py
+```
