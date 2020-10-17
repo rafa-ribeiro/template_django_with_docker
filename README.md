@@ -100,8 +100,9 @@ Com o comando executado, nosso projeto ficará com a seguinte estrutura:
 
 Antes de adicionarmos os módulos do Django, seria interessante pensar na forma de organização que teremos no nosso projeto. 
 
-Para esse projeto específico, nesse repositório iremos implementar uma arquitetura que considero mais simples, que têm seus prós e contras, como tudo na vida, mas que sua simplicidade permite identificar alguns pontos de melhoria e repensar para novos desenhos. Futuramente quero adicionar novos repositórios ilustrando outros desenhos e deixar a escolha para o desenvolvedor de qual se adequa melhor à sua solução.
+Para esse projeto, nesse repositório iremos implementar uma arquitetura que considero mais simples, que têm seus prós e contras, como tudo na vida, mas que sua simplicidade permite identificar alguns pontos de melhoria e repensar para novos desenhos. Futuramente quero adicionar novos repositórios ilustrando outros desenhos e deixar a escolha a cargo do desenvolvedor de qual se adequa melhor à sua solução.
 
 
+![Diagrama](./docs/diagrams/architecture_diagram.png)
 
 
