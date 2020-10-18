@@ -114,7 +114,7 @@ No desenho acima, está uma exibição de como seriam as dependências dos módu
 
 - **Product** e **Customer** são pacotes externos que lidam de forma isoladas com um domínio bem específico, por exemplo, o pacote Customer não depende de mais ninguém para executar suas regras de domínio e deve conhecer um conjunto de regras muito específico que dizem respeito somente a como a aplicação irá gerenciar um Customer. Nesse pacote, podem existir coisas como o Modelo de Customer, que no Django, é a estrutura que irá representar um Cliente no banco de dados da aplicação, serviços que saber manipular um Cliente, os endpoints para dar acesso às operações em Cliente, testes unitários específicos para essas operações. Essa separação evidência de forma clara que a responsabilidade desse pacote é bem específica, conhecer e manipular cliente, e isso é bom, é fácil identificar que se tenho algum problema na minha aplicação envolvendo cliente, que provavelmente, esse é o pacote que vou ter que dar manutenção e que como ele não depende de ninguém externamente, isso facilita sua manutenibilidade. Por outro lado, essa abordagem faz com que as regras de negócio se espalhem por toda a aplicação, não ficando somente no módulo main. Mas como isso ocorre? Se ao definir a estrutura Customer, for especificado que o Customer possui um nome e um email, e que esse email é único para um mesmo cliente, essa regra estaria representada no módulo Customer, mas essa é uma regra do domínio da aplicação, logo deveria estar no módulo main que seria o ponto principal a conhecer as regras da aplicação.
 
-## Prós e contras desse desenho arquitetural
+## Prós e contras do modelo arquitetural
 
 ### Prós
 - Simplicidade, fácil identificação das dependências do projeto
@@ -127,3 +127,6 @@ No desenho acima, está uma exibição de como seriam as dependências dos módu
 - As regras de negócio podem ser espalhadas, existindo tanto no main quanto nos demais módulos, mesmo que de forma mais específica.
 
 
+TODO: Continuar com a criação do módulo customer
+
+python manage.py startapp Customer
